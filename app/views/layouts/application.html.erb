@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% flash.each do |name, msg| %>
+    <%= msg %><br>
+  <% end %>
 
 <%= yield %>
+
+<%= link_to 'Contact Us', new_inquiry_path %>
 
 </body>
 </html>
