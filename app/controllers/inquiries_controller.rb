@@ -1,7 +1,7 @@
 class InquiriesController < ApplicationController
 
   def index
-
+    @inquiries = Inquiry.all
   end
 
   def new
@@ -13,7 +13,20 @@ class InquiriesController < ApplicationController
 
     if @inquiry.save
       redirect_to inquiries_path, notice: 'Inquiry created successfully'
+    else
+      render :new
     end
+  end
+
+  def destroy
+    @inquiry = Inquiry.find(params[:id])
+
+    @inquiry.destroy
+    redirect_to inquiries_path, notice: 'Story deleted successfully'
+  end
+
+  def show
+    @inquiry = Inquiry.find(params[:id])
   end
 
   private

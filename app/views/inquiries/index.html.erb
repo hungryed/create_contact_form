@@ -1,0 +1,17 @@
+<h1>All Inquiries</h1>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Subject</th>
+  </tr>
+  <% @inquiries.each do |inquiry| %>
+  <tr>
+    <td><%= inquiry.first_name %></td>
+    <td><%= inquiry.last_name %></td>
+    <td><%= inquiry.email %></td>
+    <td><%= link_to inquiry.subject, inquiry_path(inquiry) %></td>
+    </tr>
+  <% end %>
+</table>
